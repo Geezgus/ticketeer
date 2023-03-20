@@ -34,8 +34,7 @@ document.querySelectorAll('.minor-swiper h2, .minor-swiper p').forEach((x) => {
 })
 
 // Add image to Cards
-const DJ_IMAGE =
-  'https://images.unsplash.com/photo-1528991281749-0092cfc77c6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80'
+const DJ_IMAGE = 'assets/dj-by-steijn-leijzer-on-unsplash.jpg'
 document.querySelectorAll('.card-body').forEach((x) => {
   x.style.backgroundImage = `url(${DJ_IMAGE})`
 })
