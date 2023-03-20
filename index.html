@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="src/swiper/swiper.css" />
+
+    <style>
+      #search-form {
+        max-width: 768px;
+      }
+    </style>
+
+    <title>Home</title>
+  </head>
+  <body class="container my-5 d-flex flex-column gap-4">
+    <header class="d-flex justify-content-between">
+      <img id="logo" src="src/assets/logo.svg" alt="logo" />
+      <span class="fw-bold"
+        >Olá, Gustavo
+        <i class="bi bi-person-circle"></i>
+      </span>
+    </header>
+
+    <main class="d-flex flex-column gap-3">
+      <form action="" method="get" id="search-form" class="input-group flex-nowrap align-self-center">
+        <label for="search-bar" id="addon-wrapping" class="input-group-text">Buscar</label>
+        <input
+          type="search"
+          name="q"
+          placeholder="Eventos, shows, festivais, ..."
+          id="search-bar"
+          class="form-control"
+          aria-label="Pesquisar eventos, shows, festivais, ..."
+          aria-describedby="addon-wrapping"
+        />
+        <button type="submit" id="search-button" class="btn btn-outline-secondary">Search</button>
+      </form>
+
+      <section>
+        <h2>Destaques</h2>
+
+        <div class="swiper" id="highlights-swiper">
+          <div class="swiper-pagination" id="highlights-swiper-pagination"></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Eventos</h2>
+
+        <div class="swiper minor-swiper" id="events-swiper">
+          <div class="swiper-pagination" id="events-swiper-pagination"></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Shows</h2>
+
+        <div class="swiper minor-swiper" id="shows-swiper">
+          <div class="swiper-pagination" id="shows-swiper-pagination"></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Festivais</h2>
+
+        <div class="swiper minor-swiper" id="festivals-swiper">
+          <div class="swiper-pagination" id="festivals-swiper-pagination"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- <footer></footer> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="src/index.js" type="module"></script>
+  </body>
+</html>

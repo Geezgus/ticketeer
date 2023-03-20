@@ -1,0 +1,11 @@
+:root {
+  --swiper-theme-color: black;
+}
+
+.swiper {
+  height: 300px;
+}
+
+.minor-swiper {
+  height: 150px;
+}
