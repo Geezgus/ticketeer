@@ -32,3 +32,10 @@ document.querySelectorAll('.minor-swiper').forEach((x) => {
 document.querySelectorAll('.minor-swiper h2, .minor-swiper p').forEach((x) => {
   x.classList.add('fs-6')
 })
+
+// Add image to Cards
+const DJ_IMAGE =
+  'https://images.unsplash.com/photo-1528991281749-0092cfc77c6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80'
+document.querySelectorAll('.card-body').forEach((x) => {
+  x.style.backgroundImage = `url(${DJ_IMAGE})`
+})
