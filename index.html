@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="src/swiper/swiper.css" />
 
     <style>
-      #search-form {
-        max-width: 768px;
+      i {
+        font-family: monospace;
       }
 
       .card-body {
@@ -64,7 +64,9 @@
           aria-label="Pesquisar eventos, shows, festivais, ..."
           aria-describedby="addon-wrapping"
         />
-        <button type="submit" id="search-button" class="btn btn-outline-secondary">Search</button>
+        <button type="submit" id="search-button" class="btn btn-outline-secondary" aria-label="Pesquisar">
+          <i class="bi bi-search"></i>
+        </button>
       </form>
 
       <section id="highlights">
