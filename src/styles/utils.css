@@ -1,0 +1,12 @@
+.divider {
+  max-height: 1px;
+  border: 1px solid var(--bs-gray-200);
+}
+
+.register-login {
+  max-width: 425px;
+}
+
+#register-divider {
+  color: var(--bs-gray-600);
+}
