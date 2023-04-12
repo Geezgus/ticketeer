@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedido Finalizado</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" />
+  </head>
+  <body class="container my-5 d-flex flex-column gap-4">
+    <header class="d-flex justify-content-between">
+      <a href="index.html"><img id="logo" src="assets/logo.svg" alt="logo" /></a>
+
+      <div class="dropdown">
+        <button
+          class="btn btn-outline-primary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Olá, Gustavo!
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#meu-perfil">Meu Perfil</a></li>
+          <li><a class="dropdown-item" href="#meus-ingressos">Meus Ingressos</a></li>
+          <li><a class="dropdown-item" href="login.html">Sair</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="container d-flex flex-column gap-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Pedido Finalizado</h5>
+          <p class="card-text">
+            Foi enviado um e-mail para johndoe@example.com com o comprovante de pagamento da sua compra. Obrigado por
+            confiar na Ticketeer!
+          </p>
+          <button type="button" class="btn btn-outline-secondary">Voltar para Home</button>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
