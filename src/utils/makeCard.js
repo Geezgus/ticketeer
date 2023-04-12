@@ -16,6 +16,7 @@ function makeCardBody(heading, paragraph) {
 
   const description = document.createElement('p')
   description.innerText = paragraph
+  description.className = ''
 
   cardBody.appendChild(title)
   cardBody.appendChild(description)

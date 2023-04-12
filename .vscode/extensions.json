@@ -3,6 +3,7 @@
     "ritwickdey.liveserver",
     "tyriar.lorem-ipsum",
     "esbenp.prettier-vscode",
-    "wayou.vscode-todo-highlight"
+    "wayou.vscode-todo-highlight",
+    "ecmel.vscode-html-css"
   ]
 }
