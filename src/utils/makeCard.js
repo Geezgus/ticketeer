@@ -8,8 +8,9 @@ export function makeCard({ title = 'Title', description = 'Lorem ipsum dolor sit
 }
 
 function makeCardBody(heading, paragraph) {
-  const cardBody = document.createElement('div')
-  cardBody.classList.add('card-body')
+  const cardBody = document.createElement('a')
+  cardBody.classList.add('card-body', 'd-block')
+  cardBody.setAttribute('href', 'ticket.html')
 
   const title = document.createElement('h2')
   title.innerText = heading
