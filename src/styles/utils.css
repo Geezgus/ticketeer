@@ -10,3 +10,11 @@
 #register-divider {
   color: var(--bs-gray-600);
 }
+
+i {
+  font-family: monospace;
+}
+
+a {
+  text-decoration: none;
+}
