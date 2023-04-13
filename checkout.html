@@ -28,48 +28,61 @@
       </div>
     </header>
 
-    <main class="container d-flex flex-column gap-3">
+    <main class="container d-flex flex-column gap-3 col-md-6">
       <div class="card">
-        <div class="card-header"><h5>Resumo do Pedido:</h5></div>
+        <div class="card-header"><h5>Resumo do pedido</h5></div>
         <div class="card-body">
           <p class="card-text">1x Ingresso Plantão Festival</p>
         </div>
       </div>
 
-      <div>
-        <p>
-          CPF:
-          <input class="form-control" type="text" placeholder="ex: 123.456.789-99" aria-label="default input example" />
-        </p>
-        <p>
-          Telefone:
-          <input
-            class="form-control"
-            type="text"
-            placeholder="ex: (85)9.9999-9999"
-            aria-label="default input example"
-          />
-        </p>
+      <section>
+        <h2 class="h5">Dados de pagamento</h2>
 
-        <p>
-          CEP:
-          <input class="form-control" type="text" placeholder="ex: 99.999-999" aria-label="default input example" />
-        </p>
-        <p>
-          Estado:
-          <input class="form-control" type="text" placeholder="ex: Ceará" aria-label="default input example" />
-        </p>
-        <p>
-          Cidade:
-          <input class="form-control" type="text" placeholder="ex: Fortaleza" aria-label="default input example" />
-        </p>
-        <p>
-          Nome Completo:
-          <input class="form-control" type="text" placeholder="Nome Sobrenome" aria-label="default input example" />
-        </p>
-      </div>
+        <label for="nome">Nome Completo</label>
+        <input
+          id="nome"
+          class="form-control"
+          type="text"
+          placeholder="Nome Sobrenome"
+          aria-label="default input example"
+        />
 
-      <button type="button" class="btn btn-danger">Finalizar Pedido</button>
+        <label for="cpf">CPF</label>
+        <input
+          id="cpf"
+          class="form-control"
+          type="text"
+          placeholder="123.456.789-99"
+          aria-label="default input example"
+        />
+
+        <label for="tel">Telefone</label>
+        <input
+          id="tel"
+          class="form-control"
+          type="text"
+          placeholder="(85) 9 9999-9999"
+          aria-label="default input example"
+        />
+
+        <label for="cep">CEP</label>
+        <input id="cep" class="form-control" type="text" placeholder="99999999" aria-label="default input example" />
+
+        <label for="uf">UF</label>
+        <input id="uf" class="form-control" type="text" placeholder="CE" aria-label="default input example" />
+
+        <label for="cidade">Cidade</label>
+        <input
+          id="cidade"
+          class="form-control"
+          type="text"
+          placeholder="Fortaleza"
+          aria-label="default input example"
+        />
+      </section>
+
+      <a href="pedidoFinalizado.html" type="button" class="btn btn-danger">Finalizar Pedido</a>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
