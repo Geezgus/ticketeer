@@ -80,23 +80,14 @@
 
         const fullNameString = `${firstName.value} ${lastName.value}`
 
-        // if (password.value !== passwordConfirm.value) {
-        //   const error = document.createElement('span')
-        //   error.innerHTML = 'As senhas não coincidem.'
-        //   error.className = 'text-danger'
-        //   submitButton.parentNode.insertBefore(error, submitButton.nextSibling)
-        //   return
-        // }
-
-        let response = undefined
         try {
-          response = await axios.post('https://ticketeer-api.onrender.com/auth/register', {
+          const response = await axios.post('https://ticketeer-api.onrender.com/auth/register', {
             name: fullNameString,
             email: email.value,
             password: password.value,
             password_confirm: passwordConfirm.value,
           })
-        } catch (err) {
+
           const alertFormError = (message) => {
             const error = document.createElement('span')
             error.innerHTML = message
@@ -104,22 +95,16 @@
             submitButton.parentNode.insertBefore(error, submitButton.nextSibling)
           }
 
-          switch (response.data.code) {
-            case 200: {
-              alertFormError('Todos os campos devem ser preenchidos')
-              break
-            }
-            case 201: {
-              alertFormError('As senhas não coincidem')
-              break
-            }
-            case 202: {
-              alertFormError('Já existe um usuário cadastrado com esse email')
-              break
-            }
+          const codeMessages = {
+            200: 'Todos os campos devem ser preenchidos',
+            201: 'As senhas não coincidem',
+            202: 'Já existe um usuário cadastrado com esse email',
           }
 
-          console.error(response.data)
+          const { code } = response.data
+          if (code) alertFormError(codeMessages[code])
+        } catch (err) {
+          console.error(err)
         }
       })
     </script>
