@@ -31,7 +31,6 @@
           </div>
 
           <button type="submit" id="submit" class="btn btn-primary w-100">Entrar</button>
-          <!-- <button type="submit" class="btn btn-primary w-100">Entrar</button> -->
         </form>
 
         <a href="#">Esqueceu a senha?</a>
@@ -65,6 +64,10 @@
         if (token) {
           window.localStorage.setItem('tktkn', token)
           window.location.replace('./index.html')
+        } else {
+          const error = new HTMLElement()
+          error.outerHTML = `<span class='text-danger'>Usuário ou senha incorretos.</span>`
+          submitButton.insertBefore(submitButton.nextSibling, error)
         }
       })
     </script>
