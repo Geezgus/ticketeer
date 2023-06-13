@@ -25,7 +25,7 @@
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          Olá, Gustavo!
+          Olá, <span id="dd_username">_</span>!
         </button>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#meu-perfil">Meu Perfil</a></li>
@@ -101,7 +101,8 @@
     <script>
       const token = window.localStorage.getItem('tktkn')
       if (token) {
-        console.log(jwt_decode(token))
+        const tokenContent = (jwt_decode(token))
+        document.getElementById('dd_username').innerHTML = tokenContent.name.split(' ')[0]
       }
     </script>
   </body>
