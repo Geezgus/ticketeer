@@ -66,8 +66,9 @@
           window.location.replace('./index.html')
         } else {
           const error = document.createElement('span')
-          error.outerHTML = `<span class='text-danger'>Usuário ou senha incorretos.</span>`
-          submitButton.insertBefore(submitButton.nextSibling, error)
+          error.innerHTML = 'Usuário ou senha incorretos.'
+          error.className = 'text-danger'
+          submitButton.parentNode.insertBefore(error, submitButton.nextSibling)
         }
       })
     </script>
