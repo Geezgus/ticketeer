@@ -18,7 +18,12 @@
     <header class="d-flex justify-content-between">
       <a href="index.html"><img id="logo" src="assets/logo.svg" alt="logo" /></a>
 
-      <div class="dropdown">
+      <div id="sign_btns">
+        <a href="login.html" id="btn-login" class="btn btn-outline-primary">Entrar</a>
+        <a href="cadastro.html" id="btn-register" class="btn btn-outline-primary">Registrar-se</a>
+      </div>
+
+      <div id="signed_dd" class="dropdown" hidden>
         <button
           class="btn btn-outline-primary dropdown-toggle"
           type="button"
@@ -101,8 +106,11 @@
     <script>
       const token = window.localStorage.getItem('tktkn')
       if (token) {
-        const tokenContent = (jwt_decode(token))
+        const tokenContent = jwt_decode(token)
         document.getElementById('dd_username').innerHTML = tokenContent.name.split(' ')[0]
+
+        document.getElementById('sign_btns').setAttribute('hidden', true)
+        document.getElementById('signed_dd').setAttribute('hidden', false)
       }
     </script>
   </body>
