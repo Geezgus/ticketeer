@@ -75,10 +75,19 @@
       const password = document.getElementById('password')
       const passwordConfirm = document.getElementById('password-confirm')
 
-      const fullNameString = `${firstName.value} ${lastName.value}`
-
+      
       submitButton.addEventListener('click', async (ev) => {
         ev.preventDefault()
+
+        const fullNameString = `${firstName.value} ${lastName.value}`
+
+        // if (password.value !== passwordConfirm.value) {
+        //   const error = document.createElement('span')
+        //   error.innerHTML = 'As senhas não coincidem.'
+        //   error.className = 'text-danger'
+        //   submitButton.parentNode.insertBefore(error, submitButton.nextSibling)
+        //   return
+        // }
 
         try {
           const response = await axios.post('https://ticketeer-api.onrender.com/auth/register', {
@@ -88,7 +97,7 @@
             password_confirm: passwordConfirm.value,
           })
         } catch (err) {
-          console.error(err)          
+          console.error(err)
         }
       })
     </script>
