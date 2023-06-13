@@ -11,19 +11,24 @@
     <header class="d-flex justify-content-between">
       <a href="index.html"><img id="logo" src="assets/logo.svg" alt="logo" /></a>
 
-      <div class="dropdown">
+      <div id="sign_btns">
+        <a href="login.html" id="btn-login" class="btn btn-outline-primary">Entrar</a>
+        <a href="cadastro.html" id="btn-register" class="btn btn-outline-primary">Registrar-se</a>
+      </div>
+
+      <div id="signed_dd" class="dropdown" hidden>
         <button
           class="btn btn-outline-primary dropdown-toggle"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          Olá, Gustavo!
+          Olá, <span id="dd_username">_</span>!
         </button>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#meu-perfil">Meu Perfil</a></li>
           <li><a class="dropdown-item" href="#meus-ingressos">Meus Ingressos</a></li>
-          <li><a class="dropdown-item" href="login.html">Sair</a></li>
+          <li><a id="signout" class="dropdown-item">Sair</a></li>
         </ul>
       </div>
     </header>
@@ -102,6 +107,8 @@
 
         document.getElementById('sign_btns').setAttribute('hidden', 'true')
         document.getElementById('signed_dd').removeAttribute('hidden')
+      } else {
+        window.location.replace('./login.html')
       }
     </script>
   </body>

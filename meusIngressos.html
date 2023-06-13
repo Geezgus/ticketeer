@@ -73,6 +73,8 @@
 
         document.getElementById('sign_btns').setAttribute('hidden', 'true')
         document.getElementById('signed_dd').removeAttribute('hidden')
+      } else {
+        window.location.replace('./login.html')
       }
     </script>
 
@@ -96,14 +98,6 @@
           tableBody.appendChild(row)
         })
       }
-      /*
-<tr>
-  <th scope="row">3</th>
-  <td>14/04/2023</td>
-  <td>Evento 3</td>
-  <td>R$89,99</td>
-</tr>
-*/
       loadTickets()
     </script>
   </body>
