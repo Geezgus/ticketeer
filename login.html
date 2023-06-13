@@ -30,7 +30,7 @@
             <label for="password">Senha</label>
           </div>
 
-          <a href="index.html" type="submit" class="btn btn-primary w-100">Entrar</a>
+          <button type="submit" id="submit" class="btn btn-primary w-100">Entrar</button>
           <!-- <button type="submit" class="btn btn-primary w-100">Entrar</button> -->
         </form>
 
@@ -47,5 +47,26 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      const submitButton = document.getElementById('submit')
+      const email = document.getElementById('email')
+      const password = document.getElementById('password')
+
+      submitButton.addEventListener('click', async (ev) => {
+        ev.preventDefault()
+
+        const response = await axios.post('https://ticketeer-api.onrender.com/auth/login', {
+          email: email.value,
+          password: password.value,
+        })
+
+        const { token } = response.data
+        if (token) {
+          window.localStorage.setItem('tktkn', token)
+          window.location.replace('./index.html')
+        }
+      })
+    </script>
   </body>
 </html>
