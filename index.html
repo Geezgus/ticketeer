@@ -35,7 +35,7 @@
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#meu-perfil">Meu Perfil</a></li>
           <li><a class="dropdown-item" href="#meus-ingressos">Meus Ingressos</a></li>
-          <li><a class="dropdown-item" href="login.html">Sair</a></li>
+          <li><span id="signout" class="dropdown-item">Sair</span></li>
         </ul>
       </div>
     </header>
@@ -105,12 +105,16 @@
     <script src="src/libs/jwt-decode.js"></script>
     <script>
       const token = window.localStorage.getItem('tktkn')
+      const signOutBtn = document.getElementById('signout')
+
+      signOutBtn.addEventListener('click', (ev) => window.localStorage.removeItem('tktkn'))
+
       if (token) {
         const tokenContent = jwt_decode(token)
         document.getElementById('dd_username').innerHTML = tokenContent.name.split(' ')[0]
 
-        document.getElementById('sign_btns').setAttribute('hidden', true)
-        document.getElementById('signed_dd').setAttribute('hidden', false)
+        document.getElementById('sign_btns').setAttribute('hidden')
+        document.getElementById('signed_dd').removeAttribute('hidden')
       }
     </script>
   </body>
