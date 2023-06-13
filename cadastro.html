@@ -75,7 +75,6 @@
       const password = document.getElementById('password')
       const passwordConfirm = document.getElementById('password-confirm')
 
-      
       submitButton.addEventListener('click', async (ev) => {
         ev.preventDefault()
 
@@ -89,15 +88,38 @@
         //   return
         // }
 
+        let response = undefined
         try {
-          const response = await axios.post('https://ticketeer-api.onrender.com/auth/register', {
+          response = await axios.post('https://ticketeer-api.onrender.com/auth/register', {
             name: fullNameString,
             email: email.value,
             password: password.value,
             password_confirm: passwordConfirm.value,
           })
         } catch (err) {
-          console.error(err)
+          const alertFormError = (message) => {
+            const error = document.createElement('span')
+            error.innerHTML = message
+            error.className = 'text-danger'
+            submitButton.parentNode.insertBefore(error, submitButton.nextSibling)
+          }
+
+          switch (response.data.code) {
+            case 200: {
+              alertFormError('Todos os campos devem ser preenchidos')
+              break
+            }
+            case 201: {
+              alertFormError('As senhas não coincidem')
+              break
+            }
+            case 202: {
+              alertFormError('Já existe um usuário cadastrado com esse email')
+              break
+            }
+          }
+
+          console.error(response.data)
         }
       })
     </script>
