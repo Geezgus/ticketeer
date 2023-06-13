@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pedido Finalizado</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" />
+    <title>Meus Ingressos</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
   </head>
   <body class="container my-5 d-flex flex-column gap-4">
     <header class="d-flex justify-content-between">
@@ -33,20 +38,25 @@
       </div>
     </header>
 
-    <main class="container d-flex flex-column gap-3">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Pedido Finalizado</h5>
-          <p class="card-text">
-            Foi enviado um e-mail para johndoe@example.com com o comprovante de pagamento da sua compra. Obrigado por
-            confiar na Ticketeer!
-          </p>
-          <a href="index.html" type="button" class="btn btn-outline-secondary">Voltar para Home</a>
-        </div>
-      </div>
-    </main>
+    <h4>Meus Ingressos</h4>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <table class="table table-bordered table-striped-columns">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Data da Compra</th>
+          <th scope="col">Nome do Evento</th>
+          <th scope="col">Valor da Compra</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
     <script src="src/libs/jwt-decode.js"></script>
     <script>
       const token = window.localStorage.getItem('tktkn')
@@ -64,6 +74,37 @@
         document.getElementById('sign_btns').setAttribute('hidden', 'true')
         document.getElementById('signed_dd').removeAttribute('hidden')
       }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+      const tokenContent = jwt_decode(token)
+
+      async function loadTickets() {
+        const { data } = await axios.get(`https://ticketeer-api.onrender.com/tickets?owner_id=${tokenContent.id}`)
+
+        const tableBody = document.getElementById('tbody')
+        data.forEach((ticket) => {
+          const row = document.createElement('tr')
+          row.innerHTML = `
+            <th>${ticket._id}</th>
+            <td>${new Date(ticket.data_da_compra).toISOString().split('T')[0]}</td>
+            <td>${ticket.nome}</td>
+            <td>R$ ${ticket.valor}</td>
+          `
+          tableBody.appendChild(row)
+        })
+      }
+      /*
+<tr>
+  <th scope="row">3</th>
+  <td>14/04/2023</td>
+  <td>Evento 3</td>
+  <td>R$89,99</td>
+</tr>
+*/
+      loadTickets()
     </script>
   </body>
 </html>
