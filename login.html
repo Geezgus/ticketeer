@@ -55,6 +55,7 @@
       submitButton.addEventListener('click', async (ev) => {
         ev.preventDefault()
 
+        try {
         const response = await axios.post('https://ticketeer-api.onrender.com/auth/login', {
           email: email.value,
           password: password.value,
@@ -64,11 +65,25 @@
         if (token) {
           window.localStorage.setItem('tktkn', token)
           window.location.replace('./index.html')
-        } else {
-          const error = document.createElement('span')
-          error.innerHTML = 'Usuário ou senha incorretos.'
-          error.className = 'text-danger'
-          submitButton.parentNode.insertBefore(error, submitButton.nextSibling)
+        }
+      } catch (err) {
+          console.error(err)
+
+          const alertFormError = (message) => {
+            const error = document.createElement('span')
+            error.innerHTML = message
+            error.className = 'text-danger'
+            submitButton.parentNode.insertBefore(error, submitButton.nextSibling)
+          }
+
+          const codeMessages = {
+            200: 'Todos os campos devem ser preenchidos',
+            201: 'As senhas não coincidem',
+            202: 'Já existe um usuário cadastrado com esse email',
+          }
+
+          const { code } = err.response.data
+          if (code) alertFormError(codeMessages[code])
         }
       })
     </script>
