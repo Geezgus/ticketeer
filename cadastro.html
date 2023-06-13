@@ -87,6 +87,8 @@
             password: password.value,
             password_confirm: passwordConfirm.value,
           })
+        } catch (err) {
+          console.error(err)
 
           const alertFormError = (message) => {
             const error = document.createElement('span')
@@ -101,10 +103,8 @@
             202: 'Já existe um usuário cadastrado com esse email',
           }
 
-          const { code } = response.data
+          const { code } = err.response.data
           if (code) alertFormError(codeMessages[code])
-        } catch (err) {
-          console.error(err)
         }
       })
     </script>
