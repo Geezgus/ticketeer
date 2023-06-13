@@ -56,21 +56,31 @@
         ev.preventDefault()
 
         try {
-        const response = await axios.post('https://ticketeer-api.onrender.com/auth/login', {
-          email: email.value,
-          password: password.value,
-        })
+          const response = await axios.post('https://ticketeer-api.onrender.com/auth/login', {
+            email: email.value,
+            password: password.value,
+          })
 
-        const { token } = response.data
-        if (token) {
-          window.localStorage.setItem('tktkn', token)
-          window.location.replace('./index.html')
-        }
-      } catch (err) {
+          const { token } = response.data
+          if (token) {
+            window.localStorage.setItem('tktkn', token)
+            window.location.replace('./index.html')
+          }
+        } catch (err) {
           console.error(err)
 
           const alertFormError = (message) => {
-            const error = document.createElement('span')
+            const getError = () => {
+              const exist = document.getElementById('error-message')
+
+              if (exist) return exist
+
+              const error = document.createElement('span')
+              error.setAttribute('id', 'error-message')
+              return error
+            }
+
+            const error = getError()
             error.innerHTML = message
             error.className = 'text-danger'
             submitButton.parentNode.insertBefore(error, submitButton.nextSibling)
