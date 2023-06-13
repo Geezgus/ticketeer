@@ -68,7 +68,7 @@
         } else {
           const error = new HTMLElement()
           error.outerHTML = `<span class='text-danger'>Usuário ou senha incorretos.</span>`
-          submitButton.insertBefore()
+          submitButton.insertBefore(submitButton.nextSibling, error)
         }
       })
     </script>
